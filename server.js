@@ -7,15 +7,15 @@ const sql = require('mssql');
 require('dotenv').config();
 
 const dbConfig = {
-  user: "adminsql",
-  password: "A$1s0p21",
-  server: "asiamerica.database.windows.net",
-  database: "asiamerica",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,          
+  database: process.env.DB_DATABASE,
   port: 1433,
   options: {
-    encrypt: true,
+    encrypt: true,                        
     trustServerCertificate: false
-  }
+  },
 };
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
